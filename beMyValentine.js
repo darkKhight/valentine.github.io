@@ -2,6 +2,7 @@
         const noButton = document.getElementById('no-button'); 
         const happyImage = document.getElementById('happy-image'); 
         const message = document.getElementById('message');
+        const popupMessage = document.getElementById('popup-message');
         let messageIndex=0;
         const messages = [
                 "Sorry 😔",
@@ -37,13 +38,28 @@
         });
         
         yesButton.addEventListener('click', () => {
-            const imageUrl = "https://media.tenor.com/pzdnmzsQJRoAAAAi/couple-love.gif";
+            const imageUrl = "https://media.tenor.com/345jgF_f61YAAAAi/milk-mocha.gif";
             happyImage.src = imageUrl;
             happyImage.style.display = 'block';
             happyImage.style.margin = 'auto';
             message.style.display = 'none';
             yesButton.style.display = 'none';
             noButton.style.display = 'none';
+            // Show the image container with the message
+            //popupMessage.style.display = 'block';
+            document.querySelector('.image-container').style.display = 'block';
+   
+            // Start toggling the popup message
+            setInterval(() => {
+            if (popupMessage.style.display === 'none') {
+              popupMessage.style.display = 'block';
+              setTimeout(() => {
+              popupMessage.style.display = 'none';
+              }, 500); // Duration in milliseconds (3000 milliseconds = 3 seconds)
+            } else {
+              popupMessage.style.display = 'none';
+            }
+          }, 1000); // Change the interval as desired
         });
 
         happyImage.addEventListener('click', () => {
