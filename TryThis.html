@@ -118,35 +118,36 @@
         const noButton = document.getElementById('no-button'); 
         const happyImage = document.getElementById('happy-image'); 
         const message = document.getElementById('message');
-
+        let messageIndex=0;
         noButton.addEventListener('click', () => {
             noButton.style.width = 'auto';
             noButton.style.minWidth = '0px'; 
             noButton.style.maxWidth = 'none';
             const currentFontSize = window.getComputedStyle(yesButton).fontSize;
-            const newFontSize = parseFloat(currentFontSize) + 20;
+            const newFontSize = parseFloat(currentFontSize) + 8;
             yesButton.style.fontSize = `${newFontSize}px`;
             yesButton.style.padding = `${parseFloat(currentFontSize) + 10}px ${parseFloat(currentFontSize) + 20}px`;
             
             const messages = [
-                "Nope!",
                 "Sorry",
-                "NextTime!",
-                "Ofcourse!",
-                "Error",
-                "404",
-                "You are wrong",
-                "Click Yes!",
-                "Please",
                 "TryAgain!",
-                "Last Chance"
+                "Wrong Answer:(",
+                "Last Chance!",
+                "Need helpline?",
+                "Phone A Friend:)",
+                "Audience Poll:|",
+                "Audience say click YES:)",
+                "Don't click me",
+                "Just say yes",
+                "You have no other choice now",
+                "I'm going to crash",
+                "Buh Bye!!!"
             ];
-
-            const randomIndex = Math.floor(Math.random() * messages.length);
-            const randomMessage = messages[randomIndex];
+            const randomMessage = messages[messageIndex];
             noButton.textContent = randomMessage;
             const messageFontSize = "16px";
             noButton.innerHTML = `<span style="font-size: ${messageFontSize};">${randomMessage}</span>`;
+            messageIndex = (messageIndex + 1) % messages.length;
         });
 
         
@@ -162,4 +163,3 @@
     </script>
 </body>
 </html>
-
