@@ -28,6 +28,12 @@
             gap: 5px; 
         }
         
+        .image-container {
+             position: relative;
+             display: none;
+             margin-top: 20px;
+        }
+        
         button {
             padding: 10px 20px; 
             font-size: 20px; 
@@ -83,11 +89,27 @@
             max-height: calc(100vh - 300px); 
         }
         
-      #message {
+        #message {
            font-size: 20px; 
            font-weight: bold; 
            font-style: italic; 
            margin-bottom: 20px; 
            color: red; 
            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+        }
+
+        #popup-message {
+           position: absolute;
+           top:10%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           background-color: #FFB1BC;
+           padding: 10px 30px;
+           border-radius: 40%;
+           font-size: 8px;
+           font-weight: bold;
+           color: black;
+           text-align: top;
+           display: none; /* Initially hidden */
+           text-shadow: 2px 2px 5px rgba(255, 255, 255, 50);
         }
