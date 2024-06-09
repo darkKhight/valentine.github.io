@@ -146,7 +146,7 @@
             noButton.textContent = randomMessage;
             const messageFontSize = "16px";
             noButton.innerHTML = `<span style="font-size: ${messageFontSize};">${randomMessage}</span>`;
-            messageIndex = (messageIndex + 1) % messages.length;
+            messageIndex++;
          }else{
              noButton.style.display = 'none';
          }
