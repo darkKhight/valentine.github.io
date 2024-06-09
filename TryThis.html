@@ -119,7 +119,22 @@
         const happyImage = document.getElementById('happy-image'); 
         const message = document.getElementById('message');
         let messageIndex=0;
+        const messages = [
+                "Sorry 😔",
+                "Try Again! 🔄",
+                "Wrong Answer 🙁",
+                "Last Chance ⚠️",
+                "Need helpline? 📞",
+                "Phone A Friend 🙂",
+                "Audience Poll 📊",
+                "Audience says click YES 👍",
+                "Don't click me ❌",
+                "Just say yes ✔️",
+                "I'm going to crash now 💥",
+                "Buh Bye! 👋"
+            ];
         noButton.addEventListener('click', () => {
+         if (messageIndex < messages.length) {
             noButton.style.width = 'auto';
             noButton.style.minWidth = '0px'; 
             noButton.style.maxWidth = 'none';
@@ -127,29 +142,15 @@
             const newFontSize = parseFloat(currentFontSize) + 12;
             yesButton.style.fontSize = `${newFontSize}px`;
             yesButton.style.padding = `${parseFloat(currentFontSize) + 10}px ${parseFloat(currentFontSize) + 20}px`;
-            
-            const messages = [
-                "Sorry",
-                "TryAgain!",
-                "Wrong Answer:(",
-                "Last Chance!",
-                "Need helpline?",
-                "Phone A Friend:)",
-                "Audience Poll:|",
-                "Audience say click YES:)",
-                "Don't click me",
-                "Just say yes",
-                "You have no other choice now",
-                "I'm going to crash",
-                "Buh Bye!!!"
-            ];
             const randomMessage = messages[messageIndex];
             noButton.textContent = randomMessage;
             const messageFontSize = "16px";
             noButton.innerHTML = `<span style="font-size: ${messageFontSize};">${randomMessage}</span>`;
             messageIndex = (messageIndex + 1) % messages.length;
+         }else{
+             noButton.style.display = 'none';
+         }
         });
-
         
         yesButton.addEventListener('click', () => {
             const imageUrl = "https://media.tenor.com/pzdnmzsQJRoAAAAi/couple-love.gif";
